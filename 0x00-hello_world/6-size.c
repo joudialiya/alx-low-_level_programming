@@ -1,6 +1,10 @@
 #include <stdio.h>
-/* a program that print a str */
-int main()
+/**
+ * main- print the size of build-in types
+ *
+ * Return: 0
+ */
+int main(void)
 {
 	printf("Size of a char: %d byte(s)\n", sizeof(char));
 	printf("Size of an int: %d byte(s)\n", sizeof(int));
