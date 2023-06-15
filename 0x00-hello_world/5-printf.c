@@ -2,6 +2,7 @@
 /* a program that print a str */
 int main(int argc, char **argv)
 {
-	puts("Programming is like building a multilingual puzzle\n");
+	char* str = "with proper grammar, but the outcome is a piece of art,"
+	printf("%s\n", str);
 	return (0);
 }
