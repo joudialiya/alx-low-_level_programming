@@ -20,6 +20,6 @@ int main(void)
 	else if (n % 10 == 0)
 		printf("is 0");
 	else
-		printf("is greater than 5")	
+		printf("is greater than 5");	
 	return (0);
 }
