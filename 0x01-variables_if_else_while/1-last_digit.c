@@ -21,5 +21,6 @@ int main(void)
 		printf("is 0");
 	else
 		printf("is greater than 5");	
+	putchar('\n');
 	return (0);
 }
