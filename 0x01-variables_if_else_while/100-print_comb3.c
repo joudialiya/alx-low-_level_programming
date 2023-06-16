@@ -10,14 +10,14 @@ int main(void)
 	int i = 0;
 	int n = 0;
 
-	while (i < 10)
+	while (i < 9)
 	{
-		n = 0;
+		n = i + 1;
 		while (n < 10)
 		{
 			putchar('0' + i);
 			putchar('0' + n);
-			if (i != 9 || n != 9)
+			if (i != 8 || n != 9)
 			{
 				putchar(',');
 				putchar(' ');
