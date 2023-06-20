@@ -10,10 +10,18 @@ void print_alphabet_x10(void)
 
 	while (c <= 'z')
 	{
-		_putchar (c);
+		_putchar(c);
+		if (c == 'z')
+		{
+			_putchar('\n');
+		}
 		if (c == 'z' && i < 9)
+		{
+			++i;
 			c = 'a';
+		}
 		else
-			c++;
+			++c;
 	}
 }
+
