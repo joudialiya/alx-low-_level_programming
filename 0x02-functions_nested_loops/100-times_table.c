@@ -43,7 +43,7 @@ void print_times_table(int j)
 					_putchar('0' + n * row);
 				}
 			}
-			if (n != 9)
+			if (n != j)
 				_putchar(',');
 			++n;
 		}
