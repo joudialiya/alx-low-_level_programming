@@ -6,26 +6,26 @@
  */
 void print_number(int n)
 {
-	if (n * row  >= 100)
+	if (n >= 100)
 	{
 		_putchar(' ');
-		_putchar('0' + n * row / 100);
-		_putchar('0' + (n * row - 100 * (n * row / 100)) / 10);
-		_putchar('0' + (n * row - 100 * (n * row / 100)) % 10);
+		_putchar('0' + n / 100);
+		_putchar('0' + (n - 100 * (n / 100)) / 10);
+		_putchar('0' + (n - 100 * (n / 100)) % 10);
 	}
 	else if (n * row  >= 10)
 	{
 		_putchar(' ');
 		_putchar(' ');
-		_putchar('0' + n * row / 10);
-		_putchar('0' + (n * row) % 10);
+		_putchar('0' + n / 10);
+		_putchar('0' + (n) % 10);
 	}
 	else
 	{
 		_putchar(' ');
 		_putchar(' ');
 		_putchar(' ');
-		_putchar('0' + n * row);
+		_putchar('0' + n);
 	}
 }
 
