@@ -20,6 +20,6 @@ int main(void)
 		if (n1 % 2 == 0)
 			resutl += n1;
 	}
-	printf("%d\n", result);
+	printf("%ld\n", result);
 	return (0);
 }
