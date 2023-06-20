@@ -14,7 +14,7 @@ int main(void)
 
 	printf("%lu, ", n0);
 	printf("%lu, ", n1);
-	while (index < 50)
+	while (index < 100)
 	{
 		printf("%lu", n0 + n1);
 		tmp = n0;
