@@ -12,11 +12,11 @@ int main(void)
 	long int tmp = 0;
 	int index = 2;
 	
-	printf("%d, ", n0);
-	printf("%d, ", n0);
+	printf("%ld, ", n0);
+	printf("%ld, ", n0);
 	while (index < 50)
 	{
-		printf("%d", n0 + n1);
+		printf("%ld", n0 + n1);
 		tmp = n0;
 		n0 = n1;
 		n1 += tmp;
