@@ -7,11 +7,13 @@
  */
 int main(void)
 {
-	int n0 = 1;
-	int n1 = 2;
-	int tmp = 0;
+	long int n0 = 1;
+	long int n1 = 2;
+	long int tmp = 0;
 	int index = 2;
-
+	
+	printf("%d, ", n0);
+	printf("%d, ", n0);
 	while (index < 50)
 	{
 		printf("%d", n0 + n1);
@@ -19,7 +21,7 @@ int main(void)
 		n0 = n1;
 		n1 += tmp;
 		if (index != 49)
-			printf(",");
+			printf(", ");
 		++index;
 	}
 	printf("\n");
