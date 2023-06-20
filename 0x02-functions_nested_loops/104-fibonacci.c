@@ -14,13 +14,13 @@ int main(void)
 
 	printf("%lu, ", n0);
 	printf("%lu, ", n1);
-	while (index < 100)
+	while (index < 98)
 	{
 		printf("%lu", n0 + n1);
 		tmp = n0;
 		n0 = n1;
 		n1 += tmp;
-		if (index != 99)
+		if (index != 97)
 			printf(", ");
 		++index;
 	}
