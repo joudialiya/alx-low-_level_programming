@@ -18,7 +18,7 @@ int main(void)
 		n0 = n1;
 		n1 += tmp;
 		if (n1 % 2 == 0)
-			resutl += n1;
+			result += n1;
 	}
 	printf("%ld\n", result);
 	return (0);
