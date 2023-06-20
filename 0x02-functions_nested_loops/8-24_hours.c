@@ -1,5 +1,5 @@
 #include "main.h"
-#define MAX_MINUTES 3600
+#define MAX_MINUTES 1440
 
 /**
  * jack_bauer - print erevy minute
