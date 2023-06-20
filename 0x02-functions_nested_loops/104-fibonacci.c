@@ -20,7 +20,7 @@ int main(void)
 		tmp = n0;
 		n0 = n1;
 		n1 += tmp;
-		if (index != 49)
+		if (index != 99)
 			printf(", ");
 		++index;
 	}
