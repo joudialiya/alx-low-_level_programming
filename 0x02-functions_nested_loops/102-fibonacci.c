@@ -11,9 +11,9 @@ int main(void)
 	long int n1 = 2;
 	long int tmp = 0;
 	int index = 2;
-	
+
 	printf("%ld, ", n0);
-	printf("%ld, ", n0);
+	printf("%ld, ", n1);
 	while (index < 50)
 	{
 		printf("%ld", n0 + n1);
