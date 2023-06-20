@@ -2,20 +2,20 @@
 
 /**
  * print_times_table - print n times table
- * @n: number
+ * @j: number
  */
-void print_times_table(int n)
+void print_times_table(int j)
 {
-	if (n > 15 || n < 0)
-		return;
-
 	int row = 0;
 
-	while (row < n)
+	if (j > 15 || j < 0)
+		return;
+
+	while (row < j)
 	{
 		int n = 0;
 
-		while (n < n)
+		while (n < j)
 		{
 			if (n == 0)
 				_putchar('0');
