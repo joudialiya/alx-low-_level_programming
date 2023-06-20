@@ -10,7 +10,7 @@ int main(void)
 	long int n0 = 1;
 	long int n1 = 2;
 	long int tmp = 0;
-	long int result = 1;
+	long int result = 2;
 
 	while (n1 <= 4000000)
 	{
