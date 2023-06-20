@@ -6,6 +6,9 @@
  */
 void print_times_table(int n)
 {
+	if (n > 15 || n < 0)
+		return;
+
 	int row = 0;
 
 	while (row < n)
@@ -22,8 +25,8 @@ void print_times_table(int n)
 				{
 					_putchar(' ');
 					_putchar('0' + n * row / 100);
-					_putchar('0' + (n * row - 100 * (n * row / 100) / 10);
-					_putchar('0' + (n * row - 100 * (n * row / 100) % 10);
+					_putchar('0' + (n * row - 100 * (n * row / 100) / 10));
+					_putchar('0' + (n * row - 100 * (n * row / 100) % 10));
 				}
 				else if (n * row  >= 10)
 				{
