@@ -1,9 +1,14 @@
 #include <stdio.h>
 #define DEL 1000000000
 
+/**
+ * print_n - print a number from two parts
+ * @part1: the part 1 of the num
+ * @part2: the part 2 of the num
+ */
 void print_n(unsigned long part1, unsigned long part2)
 {
-	if(part2 == 0)
+	if (part2 == 0)
 		printf("%lu", part1);
 	else
 		printf("%lu%09lu", part2, part1);
@@ -29,8 +34,8 @@ int main(void)
 
 	print_n(n0_part1, n0_part2);
 	printf(", ");
-	print_n(n1_part1, n1_part2); 
-	printf(", ");
+	print_n(n1_part1, n1_part2);
+	printf(":, ");
 	while (index < 98)
 	{
 		tmp_part1 = n0_part1 + n1_part1;
@@ -39,8 +44,8 @@ int main(void)
 		{
 			tmp_part1 %= DEL;
 			tmp_part2 += 1;
-		
 		}
+
 		print_n(tmp_part1, tmp_part2);
 		n0_part1 = n1_part1;
 		n0_part2 = n1_part2;
