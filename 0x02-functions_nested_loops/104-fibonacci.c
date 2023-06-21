@@ -35,7 +35,7 @@ int main(void)
 	print_n(n0_part1, n0_part2);
 	printf(", ");
 	print_n(n1_part1, n1_part2);
-	printf(":, ");
+	printf(", ");
 	while (index < 98)
 	{
 		tmp_part1 = n0_part1 + n1_part1;
