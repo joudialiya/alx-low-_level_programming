@@ -5,21 +5,17 @@
  */
 void more_numbers(void)
 {
-	int i = 0;
 	int n = 0;
 
-	while (n < 10)
+	while (n < 10 * 15)
 	{
-		i = 0;
-		while (i < 15)
-		{
-			if (i >= 10)
-				_putchar('0' + i / 10);
-			
-			_putchar('0' + i % 10);
-			++i;
-		}
+		if (n % 15 >= 10)
+			_putchar('0' + (n % 15) / 10);
+
+		_putchar('0' + (n % 15) % 10);
+
 		++n;
-		_putchar('\n');
+		if (n % 15 == 0)
+			_putchar('\n');
 	}
 }
