@@ -16,9 +16,10 @@ void print_triangle(int n)
 		{
 			int f;
 
-			for (f = 0; f < n - i; ++f)
+			f = 0;
+			for (; f < n - i - 1; ++f)
 				_putchar(' ');
-			for (; f < n - i; ++f)
+			for (; f < n; ++f)
 				_putchar('#');
 			_putchar('\n');
 			++i;
