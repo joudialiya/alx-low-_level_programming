@@ -8,6 +8,12 @@ void print_number(int n)
 {
 	int g = 1;
 
+	if (n < 0)
+	{
+		n = -n;
+		_putchar('-');
+	}
+
 	while (n / g > 10)
 		g *= 10;
 	while (g > 0)
