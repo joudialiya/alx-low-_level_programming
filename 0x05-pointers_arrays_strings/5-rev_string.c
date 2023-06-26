@@ -19,5 +19,6 @@ void rev_string(char *str)
 		tmp = *(str + index);
 		*(str + index) = *(str + len - 1 - index);
 		*(str + len - 1 - index) = tmp;
+		++index;
 	}
 }
