@@ -51,7 +51,7 @@ int _atoi(char *str)
 		{
 			found = tracker;
 
-			if (!is_num(*tracker))
+			if (!is_num(*(tracker + offset)))
 				++tracker;
 
 			while (is_num(*tracker))
