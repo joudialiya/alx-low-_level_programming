@@ -9,15 +9,15 @@
  */
 int main(void)
 {
+	char str[64] = "zzzzzzzzzzzzzzzzzzzzzzz";
 	int index = 0;
 
 	srand(time(NULL));
-	char str[64] = "zzzzzzzzzzzzzzzzzzzzzzz";
 	
 	index = rand() % 23;
 	str[index] = 'X';
 
 	printf("%s", str);
 	
-
+	return (0);
 }
