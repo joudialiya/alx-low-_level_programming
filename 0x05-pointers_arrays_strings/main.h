@@ -11,6 +11,9 @@ void rev_string(char *);
 void puts2(char *);
 void puts_half(char *);
 void print_array(int *, int);
-char * _stdcpy(char *, char *);
+char *_stdcpy(char *, char *);
+int _atoi(char *);
+int _pow(int, int);
+int is_num(char);
 
 #endif
