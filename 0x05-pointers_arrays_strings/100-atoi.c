@@ -47,7 +47,7 @@ int _atoi(char *str)
 
 	while (*tracker != '\0')
 	{
-		if (*tracker == '-' || tracker == '+' || is_num(*tracker))
+		if (*tracker == '-' || *tracker == '+' || is_num(*tracker))
 		{
 			found = tracker;
 
