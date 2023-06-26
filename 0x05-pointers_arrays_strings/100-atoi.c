@@ -62,13 +62,13 @@ int _atoi(char *str)
 
 			while (offset > 0)
 			{
-				if (*tracker != '-' || *tracker != '+')
-					res += (*tracker - '0') * _pow(10, offset - 1);
+				
+				res -= (*tracker - '0') * _pow(10, offset - 1);
 				++tracker;
 				--offset;
 			}
 
-			if (negative % 2 == 1)
+			if (negative % 2 == 0)
 				res *= -1;
 			break;
 		}
