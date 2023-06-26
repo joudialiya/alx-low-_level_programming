@@ -2,10 +2,10 @@
 
 /**
  * _pow - power of a number
- * @n: number
+ * @a: number
  * @n: power
  *
- * Result: powe of the num
+ * Return: powe of the num
  */
 int _pow(int a, int n)
 {
@@ -36,6 +36,7 @@ int is_num(char c)
 /**
  * _atoi - parse a str to extrat an int
  * @str: str
+ *
  * Return: int
  */
 int _atoi(char *str)
@@ -55,7 +56,7 @@ int _atoi(char *str)
 
 			while (is_num(*(tracker + offset)))
 				++offset;
-			
+
 			if (offset == 0)
 				continue;
 
