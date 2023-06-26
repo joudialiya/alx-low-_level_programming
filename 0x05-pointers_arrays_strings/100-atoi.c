@@ -56,6 +56,9 @@ int _atoi(char *str)
 
 			while (is_num(*tracker))
 				++offset;
+			
+			if (offset == 0)
+				continue;
 
 			while (offset >= 0)
 			{
