@@ -43,16 +43,17 @@ int _atoi(char *str)
 	char *tracker = str;
 	char *found = 0;
 	int offset = 0;
+	int negative = 0;
 	int res = 0;
 
 	while (*tracker != '\0')
 	{
-		if (*tracker == '-' || *tracker == '+' || is_num(*tracker))
+		if (*tracker == '-')
+			++negative;
+
+		if (is_num(*tracker))
 		{
 			found = tracker;
-
-			if (!is_num(*tracker))
-				++tracker;
 
 			while (is_num(*(tracker + offset)))
 				++offset;
@@ -68,7 +69,7 @@ int _atoi(char *str)
 				--offset;
 			}
 
-			if (*found == '-')
+			if (negative % 2 == 1)
 				res *= -1;
 			break;
 		}
