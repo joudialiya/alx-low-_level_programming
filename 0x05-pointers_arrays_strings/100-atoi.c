@@ -69,6 +69,7 @@ int _atoi(char *str)
 				res *= -1;
 			break;
 		}
+		++tracker;
 	}
 
 	return (res);
