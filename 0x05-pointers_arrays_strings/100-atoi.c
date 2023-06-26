@@ -60,7 +60,7 @@ int _atoi(char *str)
 			if (offset == 0)
 				continue;
 
-			while (offset >= 0)
+			while (offset > 0)
 			{
 				if (*tracker != '-' || *tracker != '+')
 					res += (*tracker - '0') * _pow(10, offset - 1);
