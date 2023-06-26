@@ -41,7 +41,6 @@ int is_num(char c)
 int _atoi(char *str)
 {
 	char *tracker = str;
-	char *found = 0;
 	int offset = 0;
 	int negative = 0;
 	int res = 0;
@@ -53,7 +52,6 @@ int _atoi(char *str)
 
 		if (is_num(*tracker))
 		{
-			found = tracker;
 
 			while (is_num(*(tracker + offset)))
 				++offset;
