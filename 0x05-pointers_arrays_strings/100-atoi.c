@@ -61,8 +61,7 @@ int _atoi(char *str)
 				continue;
 
 			while (offset > 0)
-			{
-				
+			{	
 				res -= (*tracker - '0') * _pow(10, offset - 1);
 				++tracker;
 				--offset;
