@@ -1,4 +1,4 @@
-#include "main.c"
+#include "main.h"
 
 /**
  * _pow - power of a number
