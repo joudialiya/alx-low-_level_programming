@@ -7,7 +7,7 @@
  *
  * Return: -1, 0, 1
  */
-int _strcmp(char *s1, char *s1)
+int _strcmp(char *s1, char *s2)
 {
 
 
@@ -17,10 +17,5 @@ int _strcmp(char *s1, char *s1)
 		++s2;
 	}
 
-	if (*s1 > *s2)
-		return (1);
-	if (*s1 < *s2)
-		return (-1);
-
-	return (0);
+	return (*s1 - *s2);
 }
