@@ -36,7 +36,7 @@ void print_buffer(char *b, int size)
 	int char_index = 0;
 	int term = 0;
 	int i = 0;
-	char c;
+	char c = 0;
 
 	if (size <= 0)
 	{
