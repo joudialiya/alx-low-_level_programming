@@ -27,7 +27,7 @@ int contain(char *str, int c)
  */
 char *cap_string(char *str)
 {
-	char *separator = ",;.!?\"(){}\n\t "
+	char *separator = ",;.!?\"(){}\n\t ";
 	char *ptr = str;
 	int up = 1;
 
@@ -37,14 +37,14 @@ char *cap_string(char *str)
 		{
 			*ptr = *ptr - 32;
 			up = 0;
-			continue;
 		}
+		else 
+			up = 0;
 		if (contain(separator, *ptr))
 		{
 			up = 1;
 		}
 
-		up = 0;
 		++ptr;
 	}
 
