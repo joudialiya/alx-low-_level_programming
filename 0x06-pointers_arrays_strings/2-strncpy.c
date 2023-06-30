@@ -8,10 +8,9 @@
  *
  * Return: @dest
  */
-char *_strncat(char *dest, char *src, int n)
+char *_strncpy(char *dest, char *src, int n)
 {
 	char *ptr = dest;
-
 	int i = 0;
 
 	while (*src != 0 && i < n)
