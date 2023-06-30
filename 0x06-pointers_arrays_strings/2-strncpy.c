@@ -21,7 +21,13 @@ char *_strncpy(char *dest, char *src, int n)
 		++i;
 	}
 	if (*src == 0)
-		*dest = 0;
+	{
+		while (*dest != 0)
+		{
+			*dest = 0;
+			++dest;
+		}
+	}
 
 	return (ptr);
 }
