@@ -38,7 +38,7 @@ char *cap_string(char *str)
 			*ptr = *ptr - 32;
 			up = 0;
 		}
-		else 
+		else
 			up = 0;
 		if (contain(separator, *ptr))
 		{
