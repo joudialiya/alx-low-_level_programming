@@ -66,9 +66,9 @@ void print_buffer(char *b, int size)
 			print(*(b + row_index * 10 + i));
 			++i;
 		}
+		printf("\n");
 		if (term)
 			break;
-		printf("\n");
 		++row_index;
 	}
 }
