@@ -54,7 +54,7 @@ void print_buffer(char *b, int size)
 			++char_index;
 			if (row_index * 10 + char_index >= size)
 			{
-				padding(25 - char_index * 2 - char_index / 2);
+				padding(24 - char_index * 2 - char_index / 2);
 				term = 1;
 				break;
 			}

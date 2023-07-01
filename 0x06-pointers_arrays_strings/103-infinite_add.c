@@ -55,7 +55,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size)
 			flag = 0;
 		}
 
-		flag = r / 10;
+		flag = res / 10;
 		r[i] = '0' + r % 10;
 
 		++i;
@@ -74,6 +74,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size)
 		r[i] = 0;
 	}
 
-	return (res);
+	return (r);
 
 }
