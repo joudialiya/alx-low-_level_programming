@@ -48,7 +48,7 @@ void rev(char *str)
 char *infinite_add(char *n1, char *n2, char *r, int size)
 {
 	int length = 0;
-	int flag = 1;
+	int flag = 0;
 	int i = 0;
 
 	length = (len(n1) > len(n2)) ? len(n1) : len(n2);
