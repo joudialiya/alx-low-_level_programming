@@ -73,7 +73,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size)
 		++i;
 
 	}
-	if (i == size)
+	if (i >= size)
 		return (0);
 	rev(r);
 	r[i] = 0;
