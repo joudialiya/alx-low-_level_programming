@@ -10,7 +10,6 @@
  */
 char *_memset(char *s, char c, unsigned int n)
 {
-	char *ptr = s;
 	int i = 0;
 
 	while (i < n)
