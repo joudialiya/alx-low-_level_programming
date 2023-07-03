@@ -8,15 +8,14 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int (*b)[size] = (int (*)[])a;
 	int i = 0;
 	long lr = 0;
 	long rl = 0;
 
 	while (i < size)
 	{	
-		lr += b[i][i];
-		rl += b[i][size - 1 - i];
+		lr += *(a + i * size + i);
+		rl += *(a + i * size + size - 1 -i);
 		++i;
 	}
 	printf("%ld, %ld\n", lr, rl);
