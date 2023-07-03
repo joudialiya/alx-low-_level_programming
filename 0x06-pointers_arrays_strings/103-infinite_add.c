@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * len - length if a str
+ * @str: str
+ *
+ * Return: len
+ */
 int len(char *str)
 {
 	int r = 0;
@@ -11,18 +17,24 @@ int len(char *str)
 	}
 	return (r);
 }
+
+/**
+ * rev - rev a str
+ * @str: str
+ */
 void rev(char *str)
 {
 	int i = 0;
 	int l = len(str);
 
-	while (i < l/2)
+	while (i < l / 2)
 	{
 		char tmp = str[l - 1 - i];
+
 		str[l - 1 - i] = str[i];
 		str[i] = tmp;
 		++i;
-	
+	}
 }
 /**
  * infinite_add - add
@@ -35,13 +47,13 @@ void rev(char *str)
  */
 char *infinite_add(char *n1, char *n2, char *r, int size)
 {
-	int length = 0; 
+	int length = 0;
 	int flag = 1;
-       	int i = 0;
+	int i = 0;
 
 	length = (len(n1) > len(n2)) ? len(n1) : len(n2);
 
-	while (i < length && i < size - 1)
+	while ((i < length || flag == 1) && i < size - 1)
 	{
 		int res = 0;
 
@@ -56,15 +68,15 @@ char *infinite_add(char *n1, char *n2, char *r, int size)
 		}
 
 		flag = res / 10;
-		r[i] = '0' + r % 10;
+		r[i] = '0' + res % 10;
 
 		++i;
 
 	}
-	if (i >= size)
+	if (i >= size - 1)
 	{
 		r[0] = '0';
-		i = 1; 
+		i = 1;
 		while (i < size)
 			r[i] = 0;
 	}
@@ -73,7 +85,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size)
 		rev(r);
 		r[i] = 0;
 	}
-
 	return (r);
 
 }
