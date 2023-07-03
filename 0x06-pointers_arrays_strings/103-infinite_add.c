@@ -53,7 +53,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size)
 
 	length = (len(n1) > len(n2)) ? len(n1) : len(n2);
 
-	while ((i < length || flag == 1) && i < size)
+	while ((i < length || flag == 1) && i < size - 1)
 	{
 		int res = 0;
 
@@ -73,7 +73,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size)
 		++i;
 
 	}
-	if (i >= size)
+	if (i < length || flag == 1)
 		return (0);
 	rev(r);
 	r[i] = 0;
