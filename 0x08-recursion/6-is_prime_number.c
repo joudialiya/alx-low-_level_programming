@@ -10,10 +10,10 @@
 int prime_helper(int index, int n)
 {
 
-	if (n % index == 0)
-		return (0);
 	if (index == n)
 		return (1);
+	if (n % index == 0)
+		return (0);
 	return (prime_helper(index + 1, n));
 }
 
