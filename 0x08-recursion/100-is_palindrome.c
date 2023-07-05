@@ -14,7 +14,8 @@ int helper(char *start, char *end)
 		return (1);
 	if (*start != *end)
 		return (0);
-	helper(start + 1, end - 1);
+	
+	return (helper(start + 1, end - 1));
 }
 /**
  * ticket_to_the_end - reach the end of a string
