@@ -21,7 +21,7 @@ void pnum(int n)
 int main(int argc, char *argv[])
 {
 	(void)argv;
-	pnum(argc);
+	pnum(argc - 1);
 	_putchar('\n');
 	return (0);
 }
