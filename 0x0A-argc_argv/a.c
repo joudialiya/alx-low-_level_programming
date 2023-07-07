@@ -16,7 +16,7 @@ int coin(int amount, int *coins, int size, int current, int *min, int depth)
 {
 	int i = 0;
 
-	if (current > amount || depth > 12)
+	if (current > amount || depth > 20)
 		return (-1);
 	if (current == amount)
 		if (depth < *min)
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 	}
 	if (atoi(argv[1]) <= 0)
 	{
-		printf("%s\n", "0");
+		printf("%c\n", '0');
 		return (0);
 	}
 

@@ -16,7 +16,7 @@ int coin(int amount, int *coins, int size, int current, int *min, int depth)
 {
 	int i = 0;
 
-	if (current > amount || depth > 20)
+	if (current > amount)
 		return (-1);
 	if (current == amount)
 		if (depth < *min)
