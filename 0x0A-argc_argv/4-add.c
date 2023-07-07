@@ -83,8 +83,11 @@ int main(int argc, char *argv[])
 		int valide = 1;
 
 		while (*ptr != 0)
+		{
 			if (*ptr < '0' || *ptr > '9')
 				valide = 0;
+			++ptr;
+		}
 
 		if (!valide)
 		{
