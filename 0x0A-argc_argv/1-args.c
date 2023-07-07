@@ -8,7 +8,7 @@
 void pnum(int n)
 {
 	if (n >= 10)
-		print(n / 10);
+		pnum(n / 10);
 	_putchar('0' + n % 10);
 }
 /**
@@ -20,8 +20,8 @@ void pnum(int n)
  */
 int main(int argc, char *argv[])
 {
-
-	print(argc);
+	(void)argv;
+	pnum(argc);
 	_putchar('\n');
 	return (0);
 }
