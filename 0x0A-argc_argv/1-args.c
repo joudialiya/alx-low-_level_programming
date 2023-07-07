@@ -1,5 +1,16 @@
 #include "main.h"
 
+
+/**
+ * print - print int
+ * @n: int
+ */
+void print(int n)
+{
+	if (n >= 10)
+		print(n / 10);
+	_putchar('0' + n % 10);
+}
 /**
  * main - display
  * @argc: agr count
@@ -9,13 +20,8 @@
  */
 int main(int argc, char *argv[])
 {
-	char *ptr = argv[0];
 
-	while (*ptr != 0)
-	{
-		_putchar(*ptr);
-		++ptr;
-	}
+	print(argc);
 	_putchar('\n');
 	return (0);
 }
