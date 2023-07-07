@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
 {
 	char *ptr = argv[0];
 
+	(void)argc;
 	while (*ptr != 0)
 	{
 		_putchar(*ptr);
