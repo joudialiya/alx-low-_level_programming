@@ -16,11 +16,15 @@ int coin(int amount, int *coins, int size, int current, int *min, int depth)
 {
 	int i = 0;
 
-	if (current > amount)
+	if (current > amount || depth > *min)
 		return (-1);
+
 	if (current == amount)
+	{
 		if (depth < *min)
 			*min = depth;
+		return (*min);
+	}
 	while (i < size)
 	{
 		coin(amount, coins, size, current + coins[i], min, depth + 1);
@@ -46,8 +50,8 @@ int main(int argc, char *argv[])
 		printf("%s\n", "Error");
 		return (1);
 	}
-	if (atoi(argv[1]) <= 0)
-	{
+
+	if(atoi(argv[1]) < 0){
 		printf("%c\n", '0');
 		return (0);
 	}
