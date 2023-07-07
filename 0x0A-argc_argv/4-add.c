@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
  * pnum - print num
@@ -9,11 +9,11 @@ void pnum(int n)
 	if (n < 0)
 	{
 		n = -n;
-		putchar('-');
+		_putchar('-');
 	}
 	if (n >= 10)
 		pnum(n / 10);
-	putchar('0' + n % 10);
+	_putchar('0' + n % 10);
 }
 /**
  * _pow - power of an integer
@@ -83,11 +83,8 @@ int main(int argc, char *argv[])
 		int valide = 1;
 
 		while (*ptr != 0)
-		{
 			if (*ptr < '0' || *ptr > '9')
 				valide = 0;
-			++ptr;
-		}
 
 		if (!valide)
 		{
@@ -95,10 +92,10 @@ int main(int argc, char *argv[])
 
 			while (*str != 0)
 			{
-				putchar(*str);
+				_putchar(*str);
 				++str;
 			}
-			putchar('\n');
+			_putchar('\n');
 			return (1);
 		}
 
@@ -106,6 +103,6 @@ int main(int argc, char *argv[])
 		++i;
 	}
 	pnum(r);
-	putchar('\n');
+	_putchar('\n');
 	return (0);
 }
