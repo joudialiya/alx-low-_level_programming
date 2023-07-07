@@ -88,5 +88,6 @@ int main(int argc, char *argv[])
 	}
 
 	pnum(_atoi(argv[1]) * _atoi(argv[2]));
+	_putchar('\n');
 	return (0);
 }
