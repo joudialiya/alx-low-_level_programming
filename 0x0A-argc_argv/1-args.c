@@ -2,10 +2,10 @@
 
 
 /**
- * print - print int
+ * pnum - print int
  * @n: int
  */
-void print(int n)
+void pnum(int n)
 {
 	if (n >= 10)
 		print(n / 10);
