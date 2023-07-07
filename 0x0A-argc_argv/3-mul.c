@@ -54,7 +54,7 @@ int _atoi(char *s)
 	if (*s == 0)
 		return (0);
 
-	if (*s != '-')
+	if (*s == '-')
 	{
 		++s;
 		r = -1;

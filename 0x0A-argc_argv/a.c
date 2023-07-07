@@ -13,7 +13,7 @@ void pnum(int n)
 	}
 	if (n >= 10)
 		pnum(n / 10);
-	putchar(n % 10);
+	putchar('0' + n % 10);
 }
 /**
  * _pow - power of an integer
@@ -24,7 +24,7 @@ void pnum(int n)
  */
 int _pow(int n, int e)
 {
-	if (e == 0)
+	if (e <= 0)
 		return (1);
 	return (n * _pow(n, e - 1));
 }
@@ -54,7 +54,7 @@ int _atoi(char *s)
 	if (*s == 0)
 		return (0);
 
-	if (*s != '-')
+	if (*s == '-')
 	{
 		++s;
 		r = -1;
