@@ -1,7 +1,17 @@
-#include <stdio.h>
+#include "main.h"
 #include <stdlib.h>
 #include <limits.h>
 
+/**
+ * pnum - print positive int
+ * @n: int
+ */
+void pnum(int n)
+{
+	if (n >= 10)
+		pnum(n / 10);
+	_putchar('0' + n % 10);
+}
 /**
  * min_coins - search fun
  * @coins: coins
@@ -59,13 +69,21 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		printf("%s\n", "Error");
+		char *str = "Error";
+
+		while (*str != 0)
+		{
+			_putchar(*str);
+			++s;
+		}
+		_putchar('\n');
 		return (1);
 	}
 	amount = atoi(argv[1]);
 	if (amount < 0)
 		amount = 0;
 	min = min_coins(coins, size, amount);
-	printf("%d\n", min);
+	pnum(main);
+	_putchar('\n')
 	return (0);
 }
