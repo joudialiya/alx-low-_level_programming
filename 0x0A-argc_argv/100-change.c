@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
 	amount = atoi(argv[1]);
 	if (amount < 0)
 		amount = 0;
-	min = minCoins(coins, size, amount);
+	min = min_coins(coins, size, amount);
 	printf("%d\n", min);
 	return (0);
 }
