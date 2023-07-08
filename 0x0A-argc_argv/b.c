@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
 
@@ -10,7 +10,7 @@ void pnum(int n)
 {
 	if (n >= 10)
 		pnum(n / 10);
-	_putchar('0' + n % 10);
+	putchar('0' + n % 10);
 }
 /**
  * min_coins - search fun
@@ -73,10 +73,10 @@ int main(int argc, char *argv[])
 
 		while (*str != 0)
 		{
-			_putchar(*str);
+			putchar(*str);
 			++str;
 		}
-		_putchar('\n');
+		putchar('\n');
 		return (1);
 	}
 	amount = atoi(argv[1]);
@@ -84,6 +84,6 @@ int main(int argc, char *argv[])
 		amount = 0;
 	min = min_coins(coins, size, amount);
 	pnum(min);
-	_putchar('\n');
+	putchar('\n');
 	return (0);
 }
