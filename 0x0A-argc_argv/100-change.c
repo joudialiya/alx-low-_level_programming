@@ -1,63 +1,59 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
-/**
- * coin - solution
- * @amount: amount
- * @coins: array of a coins
- * @size: siz of the array
- * @current: current sum
- * @min: min so far
- * @depth: depth of the tree
- *
- * Return: succ or not
- */
-int coin(int amount, int *coins, int size, int current, int *min, int depth)
-{
-	int i = 0;
+#include <limits.h> 
 
-	if (current > amount || depth > *min)
-		return (-1);
+int minCoins(int coins[], int size, int amount) {
+    
+    int list[65535];
+    int i, j;
+    
+    i = 0;
+    while ( i <= amount)
+    {
+        list[i] = INT_MAX;
+        ++i;
+    }
+	
+    list[0] = 0;
 
-	if (current == amount)
-	{
-		if (depth < *min)
-			*min = depth;
-		return (*min);
-	}
-	while (i < size)
-	{
-		coin(amount, coins, size, current + coins[i], min, depth + 1);
-		++i;
-	}
-	return (*min);
+	i = 1;
+    while (i <= amount) 
+    {
+	    j = 0;
+        while ( j < size)
+	    {
+            if (coins[j] <= i)
+	        {
+                int sub = list[i - coins[j]];
+                if (sub != INT_MAX) 
+                    list[i] = (list[i] < sub + 1) ? list[i] : sub + 1;
+            }
+		    ++j;
+        }
+	    ++i;
+    }
+
+    return list[amount];
 }
 
-/**
- * main - main program;
- * @argc: arg count
- * @argv: arg vector
- *
- * Return: 0 or 1
- */
 int main(int argc, char *argv[])
 {
-	int coins[] = {25, 10, 5, 2, 1};
-	int min = INT_MAX;
+    int coins[] = {25, 10, 5, 2, 1};
+    int size = 5;
+    int amount;
+    
+    if (argc != 2)
+    {
+        printf("%s\n", "Error");
+        return (1);
+    }
 
-	if (argc != 2)
-	{
-		printf("%s\n", "Error");
-		return (1);
-	}
-
-	if (atoi(argv[1]) < 0)
-	{
-		printf("%c\n", '0');
-		return (0);
-	}
-
-	coin(atoi(argv[1]), coins, 5, 0, &min, 0);
-	printf("%d\n", min);
-	return (0);
+    amount = atoi(argv[1]);
+    
+    if (amount < 0)
+        amount = 0;
+        
+    int min = minCoins(coins, size, amount);
+    printf("%d\n", min);
+    return 0;
 }
