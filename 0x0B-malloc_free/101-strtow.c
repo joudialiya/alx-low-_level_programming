@@ -39,7 +39,7 @@ int wcount(char *s)
 			break;
 		++s;
 	}
-	return (r + 1);
+	return (r);
 }
 /**
  * strtow - return array of words
@@ -53,7 +53,7 @@ char **strtow(char *str)
 	char **r = 0;
 	int i = 0;
 
-	if (str == 0|| *str == 0)
+	if (str == 0 || *str == 0)
 		return (0);
 
 	size = wcount(str);
