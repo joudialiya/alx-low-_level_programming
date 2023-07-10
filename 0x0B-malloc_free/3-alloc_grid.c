@@ -37,5 +37,5 @@ int **alloc_grid(int w, int h)
 		++i;
 	}
 
-	return (p);
+	return (ptr);
 }
