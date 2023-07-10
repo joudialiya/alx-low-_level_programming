@@ -20,6 +20,17 @@ int **alloc_grid(int w, int h)
 	ptr = (int *)malloc(sizeof(int) * w * h);
 	p = (int **)malloc(sizeof(int *) * h);
 
+	if (p == 0 || ptr == 0)
+		return (0);
+
+
+	while (i < w * h)
+	{
+		ptr[i] = 0;
+		++i;
+	}
+
+	i = 0;
 	while (i < h)
 	{
 		p[i] = ptr +  i * w;
