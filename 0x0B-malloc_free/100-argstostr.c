@@ -62,7 +62,7 @@ char *argstostr(int ac, char **av)
 	while (i < ac)
 	{
 		_strcat(str, av[i]);
-		_strcat(str, '\n');
+		_strcat(str, "\n");
 		++i;
 	}
 
