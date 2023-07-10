@@ -8,7 +8,7 @@
  * Return: ptr;
  */
 
-void alloc_grid(int w, int h)
+int **alloc_grid(int w, int h)
 {
 	int *ptr = 0;
 	int **p = 0;
