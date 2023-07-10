@@ -56,7 +56,7 @@ char **strtow(char *str)
 	if (str == 0 || *str == 0)
 		return (0);
 
-	size = wcount(*str);
+	size = wcount(str);
 
 	if (size == 0)
 		return (0);
