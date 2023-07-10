@@ -7,5 +7,6 @@
  */
 void free_grid(int **grid, int h)
 {
+	(void)h;
 	free(grid);
 }
