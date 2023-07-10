@@ -23,13 +23,13 @@ int len(char *s)
 char *str_concat(char *s1, char *s2)
 {
 	char *ptr = NULL;
-	int len = 0;
+	int size = 0;
 	int i = 0;
 
-	len += (s1 == NULL) ? 0 : len(s1);
-	len += (s2 == NULL) ? 0 : len(s2);
+	size += (s1 == NULL) ? 0 : len(s1);
+	size += (s2 == NULL) ? 0 : len(s2);
 
-	ptr == malloc(sizeof(char) * (len + 1));
+	ptr == malloc(sizeof(char) * (size + 1));
 
 	if (ptr == NULL)
 		return (NULL);
