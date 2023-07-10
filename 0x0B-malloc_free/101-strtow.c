@@ -49,7 +49,7 @@ int wcount(char *s)
  */
 char **strtow(char *str)
 {
-	char ** r = 0;
+	char **r = 0;
 	int size = 0;
 	int i = 0;
 
@@ -62,11 +62,11 @@ char **strtow(char *str)
 		return (0);
 
 	r = (char **)malloc(sizeof(char *) * (size + 1));
-	
+
 	if (r == 0)
 		return (0);
 	r[size] = 0;
-	
+
 	while (*str != 0)
 	{
 		int word = 0;
