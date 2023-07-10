@@ -32,7 +32,7 @@ int wcount(char *s)
 		if (*s != ' ')
 		{
 			++r;
-			while (*s != ' ')
+			while (*s != ' ' && *s != 0)
 				++s;
 		}
 		if (*s == 0)
