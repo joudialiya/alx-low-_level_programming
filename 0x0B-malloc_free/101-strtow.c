@@ -74,16 +74,19 @@ char **strtow(char *str)
 			continue;
 		}
 
-		while (*(str + word) != ' ' && (str + word) != 0)
+		if (*(str + word) != ' ' && (str + word) != 0)
 		{
-			++word;
-		}
+			while (*(str + word) != ' ' && (str + word) != 0)
+			{
+				++word;
+			}
 
-		r[i] = malloc(sizeof(char) * (word + 1));
-		_memncpy(r[i], str, word);
-		r[i][word] = 0;
-		++i;
-		str += word;
+			r[i] = malloc(sizeof(char) * (word + 1));
+			_memncpy(r[i], str, word);
+			r[i][word] = 0;
+			++i;
+			str += word;
+		}
 
 	}
 	return (r);
