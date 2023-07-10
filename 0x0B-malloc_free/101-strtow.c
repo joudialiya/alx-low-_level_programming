@@ -29,10 +29,10 @@ int wcount(char *s)
 
 	while (*s != 0)
 	{
-		if (*s == ' ')
+		if (*s != ' ')
 		{
 			++r;
-			while (*s == ' ')
+			while (*s != ' ')
 				++s;
 		}
 		if (*s == 0)
@@ -53,6 +53,9 @@ char **strtow(char *str)
 	char **r = 0;
 	int i = 0;
 
+	if (str == 0|| *str == 0)
+		return (0);
+
 	size = wcount(str);
 
 	r = (char **)malloc(sizeof(char *) * (size + 1));
@@ -61,24 +64,27 @@ char **strtow(char *str)
 		return (0);
 
 	r[size] = 0;
-	while (1)
+	while (*str != 0)
 	{
 		int word = 0;
 
-		while (str[i] == ' ')
-			++i;
-		if (str[i] == 0)
-			break;
+		if (*str == ' ')
+		{
+			++str;
+			continue;
+		}
 
-		while (str[i + word] != ' ' && str[i + word] != 0)
+		while (*(str + word) != ' ' && (str + word) != 0)
 		{
 			++word;
 		}
 
 		r[i] = malloc(sizeof(char) * (word + 1));
-		_memncpy(r[i], str + i, word);
-		r[word] = 0;
-		i += word;
+		_memncpy(r[i], str, word);
+		r[i][word] = 0;
+		++i;
+		str += word;
+
 	}
 	return (r);
 }
