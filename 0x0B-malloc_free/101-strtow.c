@@ -58,7 +58,7 @@ char **strtow(char *str)
 
 	size = wcount(str);
 
-	r = (char **)malloc(sizeof(char *) * (size + 1));
+	r = (char **)malloc(sizeof(char *) * (size));
 
 	if (r == 0)
 		return (0);
