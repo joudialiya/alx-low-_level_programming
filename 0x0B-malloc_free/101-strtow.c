@@ -1,4 +1,5 @@
-#include "main.h";
+#include "main.h"
+
 /**
  * _memncpy - cpy bytes
  * @dest: dest
@@ -59,7 +60,7 @@ char **strtow(char *str)
 	if (r == 0)
 		return (0);
 
-	r[size] = null;
+	r[size] = 0;
 	while (1)
 	{
 		int word = 0;
@@ -68,12 +69,14 @@ char **strtow(char *str)
 			++i;
 		if (str[i] == 0)
 			break;
-		while (str[i + j] != ' ' && str[i + j] != 0)
+
+		while (str[i + word] != ' ' && str[i + word] != 0)
 		{
 			++word;
 		}
+
 		r[i] = malloc(sizeof(char) * (word + 1));
-		_memncpy(r[i], str[i], word);
+		_memncpy(r[i], str + i, word);
 		r[word] = 0;
 		i += word;
 	}
