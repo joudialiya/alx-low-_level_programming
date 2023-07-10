@@ -26,7 +26,7 @@ int **alloc_grid(int w, int h)
 
 	while (i < h * w)
 	{
-		p[i] = 'c';
+		p[i] = 0;
 		++i;
 	}
 
