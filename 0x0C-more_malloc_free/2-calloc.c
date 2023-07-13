@@ -9,7 +9,7 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *ptr = 0;
+	char *ptr = 0;
 	unsigned int i = 0;
 
 	ptr = malloc(nmemb * size);
@@ -18,7 +18,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	while (i < nmemb)
 	{
-		ptr[i] = 0;
+		*(ptr + i) = 0;
 		++i;
 	}
 	return (ptr);
