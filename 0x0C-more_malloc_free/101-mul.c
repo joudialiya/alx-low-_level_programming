@@ -153,6 +153,7 @@ char * _mul(char *n1, char *n2)
 int main(int argc, char *argv[])
 {
 	int i = 0;
+	int r = 0;
 
 	if (argc != 3)
 	{
@@ -173,7 +174,11 @@ int main(int argc, char *argv[])
 
 	_rev(argv[1]);
 	_rev(argv[2]);
-	printf("%s\n", _mul(argv[i], argv[2]));
+
+	r = _mul(argv[1], argv[2]);
+	_rev(r);
+
+	printf("%s\n", r);
 
 	return (0);
 
