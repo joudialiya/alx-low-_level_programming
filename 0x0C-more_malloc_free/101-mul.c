@@ -14,6 +14,7 @@ void _rev(char *s)
 	while (i < size)
 	{
 		char *tmp = s[i];
+		
 		s[i] = s[size - 1 - i];
 		s[size - 1 - i] = tmp;
 		++i;
@@ -55,7 +56,7 @@ char *_add(char *n1, char *n2)
 
 	size = strlen(n1) > strlen(n2) ? strlen(n1) : strlen(n2);
 	ptr = array(size);
-
+    
 	while (i < size || carry)
 	{
 		int r = 0;
@@ -66,7 +67,6 @@ char *_add(char *n1, char *n2)
 			r += n2[i] - '0';
 		if (carry)
 			r += carry;
-
 		if (i >= size)
 		{
 			ptr = realloc(ptr, size + 2);
@@ -75,8 +75,10 @@ char *_add(char *n1, char *n2)
 		}
 
 		carry = r / 10;
-		ptr[i] +=  r % 10 + '0';
+		ptr[i] =  r % 10 + '0';
+		++i;
 	}
+	return (ptr);
 }
 /**
  * _mul - funny mul
@@ -85,7 +87,7 @@ char *_add(char *n1, char *n2)
  *
  * Return: ptr
  */
-char *_mul(char *n1, char *n2)
+void _mul(char *n1, char *n2)
 {
 	int size = 0;
 	char *ptr = 0;
@@ -93,7 +95,15 @@ char *_mul(char *n1, char *n2)
 	int i = 0;
 	int j = 0;
 	int carry = 0;
+	char *tmp = 0;
 
+    if (strlen(n1) < strlen(n2))
+    {
+        tmp = n2;
+        n2 = n1;
+        n1 = tmp;
+    }
+        
 	size = strlen(n1) > strlen(n2) ? strlen(n1) : strlen(n2);
 	ptr = array(size);
 
@@ -101,29 +111,34 @@ char *_mul(char *n1, char *n2)
 	{
 		carry = 0;
 		j = 0;
-		mul = array(size);
+		mul = array(size + i);
+		printf("--%s\n", mul);
 		while (j < strlen(n1) || carry)
 		{
 			int r = 0;
 
 			if (j < strlen(n1))
-			{
 				r += (n1[j] - '0') * (n2[i] - '0');
-			}
 			if (carry)
 				r += carry;
+			printf ("%d\n", r);
 			if (j >= strlen(n1))
 			{
-				mul = realloc(ptr, size + 2);
-				mul[size + 1] = 0;
-				mul[size] = '0';
+				mul = realloc(mul, size + i + 2);
+				mul[size + i + 1] = 0;
+				mul[size + i] = '0';
 			}
-
 			carry = r / 10;
-			ptr[i] +=  r % 10 + '0';
+			mul[j + i] =  r % 10 + '0';
+			++j;
 		}
+		printf("--%s\n", mul);
 		ptr = _add(ptr, mul);
+		free(mul);
+		++i;
 	}
+	printf("%s\n", ptr);
+}
 
 /**
  * main - main program
