@@ -86,13 +86,13 @@ char *_add(char *n1, char *n2)
  * @ptr1: ptr 1
  * @ptr2: ptr 2
  */
-void _swap(void *ptr1, void *ptr2)
+void _swap(char **ptr1, char **ptr2)
 {
 	void *tmp = 0;
 
-	tmp = ptr2;
-	ptr2 = ptr1;
-	ptr1 = tmp;
+	tmp = *ptr2;
+	*ptr2 = *ptr1;
+	*ptr1 = tmp;
 }
 /**
  * _mul - funny mul
@@ -111,7 +111,7 @@ char * _mul(char *n1, char *n2)
 	int carry = 0;
 
 	if (strlen(n1) < strlen(n2))
-		_swap(n1, n2);
+		_swap(&n1, &n2);
 	size = strlen(n1) > strlen(n2) ? strlen(n1) : strlen(n2);
 	ptr = array(size);
 	while (i < strlen(n2))
@@ -153,7 +153,7 @@ char * _mul(char *n1, char *n2)
 int main(int argc, char *argv[])
 {
 	int i = 0;
-	int r = 0;
+	char *r = 0;
 
 	if (argc != 3)
 	{
