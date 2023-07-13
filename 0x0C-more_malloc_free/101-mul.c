@@ -1,7 +1,11 @@
+#include "main.h"
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
-
+/**
+ * _rev - rev a string
+ * @s: str
+ */
 void _rev(char *s)
 {
 	int size = strlen(s);
@@ -15,7 +19,12 @@ void _rev(char *s)
 		++i;
 	}
 }
-
+/**
+ * array - array of chars init
+ * @size: size
+ *
+ * Return: ptr
+ */
 char *array(int size)
 {
 	char *ptr = 0;
@@ -30,7 +39,13 @@ char *array(int size)
 		++i;
 	}
 }
-
+/**
+ * _add - addition
+ * @n1: num 1
+ * @n2: num 2
+ *
+ * Return: ptr
+ */
 char *_add(char *n1, char *n2)
 {
 	int size = 0;
@@ -63,6 +78,13 @@ char *_add(char *n1, char *n2)
 		ptr[i] +=  r % 10 + '0';
 	}
 }
+/**
+ * _mul - funny mul
+ * @n1: num 1
+ * @n2: num 2
+ *
+ * Return: ptr
+ */
 char *_mul(char *n1, char *n2)
 {
 	int size = 0;
@@ -102,3 +124,38 @@ char *_mul(char *n1, char *n2)
 		}
 		ptr = _add(ptr, mul);
 	}
+
+/**
+ * main - main program
+ * @argc: args count
+ * @argv: agrv
+ *
+ * Return : status
+ */
+int main(int argc, char *argv[])
+{
+	int i = 0;
+
+	if (argc != 3)
+	{
+		printf("Error\n");
+		exit(98);
+		
+	}
+	
+	i = 1;
+	while (i < 3)
+	{
+		if (strlen(argv[i]) != strspn(argv[i], "0123456789"))
+		{
+			printf("Error\n");
+			exit(98);
+		}
+		++i;
+	}
+
+	_rev(argv[1]);
+	_rev(argv[2]);
+	_mul(argv[i], argv[2]);
+
+}
