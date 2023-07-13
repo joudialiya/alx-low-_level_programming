@@ -11,10 +11,10 @@ void _rev(char *s)
 	int size = strlen(s);
 	int i = 0;
 
-	while (i < size)
+	while (i < size / 2)
 	{
-		char *tmp = s[i];
-		
+		char tmp = s[i];
+
 		s[i] = s[size - 1 - i];
 		s[size - 1 - i] = tmp;
 		++i;
@@ -39,6 +39,7 @@ char *array(int size)
 		ptr[i] = '0';
 		++i;
 	}
+	return (ptr);
 }
 /**
  * _add - addition
@@ -49,14 +50,14 @@ char *array(int size)
  */
 char *_add(char *n1, char *n2)
 {
-	int size = 0;
+	unsigned long size = 0;
 	char *ptr = 0;
-	int i = 0;
+	unsigned long i = 0;
 	int carry = 0;
 
 	size = strlen(n1) > strlen(n2) ? strlen(n1) : strlen(n2);
 	ptr = array(size);
-    
+
 	while (i < size || carry)
 	{
 		int r = 0;
@@ -81,38 +82,42 @@ char *_add(char *n1, char *n2)
 	return (ptr);
 }
 /**
+ * _swap - swap add
+ * @ptr1: ptr 1
+ * @ptr2: ptr 2
+ */
+void _swap(void *ptr1, void *ptr2)
+{
+	void *tmp = 0;
+
+	tmp = ptr2;
+	ptr2 = ptr1;
+	ptr1 = tmp;
+}
+/**
  * _mul - funny mul
  * @n1: num 1
  * @n2: num 2
  *
  * Return: ptr
  */
-void _mul(char *n1, char *n2)
+char * _mul(char *n1, char *n2)
 {
 	int size = 0;
 	char *ptr = 0;
 	char *mul = 0;
-	int i = 0;
-	int j = 0;
+	unsigned long i = 0;
+	unsigned long j = 0;
 	int carry = 0;
-	char *tmp = 0;
 
-    if (strlen(n1) < strlen(n2))
-    {
-        tmp = n2;
-        n2 = n1;
-        n1 = tmp;
-    }
-        
+	if (strlen(n1) < strlen(n2))
+		_swap(n1, n2);
 	size = strlen(n1) > strlen(n2) ? strlen(n1) : strlen(n2);
 	ptr = array(size);
-
 	while (i < strlen(n2))
 	{
-		carry = 0;
 		j = 0;
 		mul = array(size + i);
-		printf("--%s\n", mul);
 		while (j < strlen(n1) || carry)
 		{
 			int r = 0;
@@ -121,7 +126,6 @@ void _mul(char *n1, char *n2)
 				r += (n1[j] - '0') * (n2[i] - '0');
 			if (carry)
 				r += carry;
-			printf ("%d\n", r);
 			if (j >= strlen(n1))
 			{
 				mul = realloc(mul, size + i + 2);
@@ -132,12 +136,11 @@ void _mul(char *n1, char *n2)
 			mul[j + i] =  r % 10 + '0';
 			++j;
 		}
-		printf("--%s\n", mul);
 		ptr = _add(ptr, mul);
 		free(mul);
 		++i;
 	}
-	printf("%s\n", ptr);
+	return (ptr);
 }
 
 /**
@@ -145,7 +148,7 @@ void _mul(char *n1, char *n2)
  * @argc: args count
  * @argv: agrv
  *
- * Return : status
+ * Return: status
  */
 int main(int argc, char *argv[])
 {
@@ -155,9 +158,8 @@ int main(int argc, char *argv[])
 	{
 		printf("Error\n");
 		exit(98);
-		
 	}
-	
+
 	i = 1;
 	while (i < 3)
 	{
@@ -171,6 +173,8 @@ int main(int argc, char *argv[])
 
 	_rev(argv[1]);
 	_rev(argv[2]);
-	_mul(argv[i], argv[2]);
+	printf("%s\n", _mul(argv[i], argv[2]));
+
+	return (0);
 
 }
