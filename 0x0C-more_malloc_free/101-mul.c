@@ -97,6 +97,22 @@ void _swap(char **ptr1, char **ptr2)
 	*ptr1 = tmp;
 }
 /**
+ * _zero - if the s is a zero
+ * @s: str
+ *
+ * Return: 1 or 0
+ */
+int _zero(char *s)
+{
+	while (*s != 0)
+	{
+		if (*s != '0')
+			return (0);
+		++s;
+	}
+	return (1);
+}
+/**
  * _mul - funny mul
  * @n1: num 1
  * @n2: num 2
@@ -112,6 +128,8 @@ char *_mul(char *n1, char *n2)
 	unsigned long j = 0;
 	int carry = 0;
 
+	if (_zero(n1) || _zero(n2))
+		return (array(1));
 	if (strlen(n1) < strlen(n2))
 		_swap(&n1, &n2);
 	size = strlen(n1) > strlen(n2) ? strlen(n1) : strlen(n2);
