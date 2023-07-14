@@ -79,6 +79,8 @@ char *_add(char *n1, char *n2)
 		ptr[i] =  r % 10 + '0';
 		++i;
 	}
+	free(n1);
+	free(n2);
 	return (ptr);
 }
 /**
@@ -101,7 +103,7 @@ void _swap(char **ptr1, char **ptr2)
  *
  * Return: ptr
  */
-char * _mul(char *n1, char *n2)
+char *_mul(char *n1, char *n2)
 {
 	int size = 0;
 	char *ptr = 0;
@@ -137,7 +139,6 @@ char * _mul(char *n1, char *n2)
 			++j;
 		}
 		ptr = _add(ptr, mul);
-		free(mul);
 		++i;
 	}
 	return (ptr);
@@ -179,7 +180,6 @@ int main(int argc, char *argv[])
 	_rev(r);
 
 	printf("%s\n", r);
-
+	free(r);
 	return (0);
-
 }
