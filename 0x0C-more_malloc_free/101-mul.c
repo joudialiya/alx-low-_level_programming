@@ -159,6 +159,8 @@ char *_mul(char *n1, char *n2)
 		ptr = _add(ptr, mul);
 		++i;
 	}
+	free(n1);
+	free(n2);
 	return (ptr);
 }
 
