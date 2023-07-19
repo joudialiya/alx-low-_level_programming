@@ -1,6 +1,8 @@
 #ifndef FUN_H
 #define FUN_H
 
+#include <strlib.h>
+
 int _putchar(int);
 void print_name(char *name, void (*f)(char *));
 void array_iterator(int *array, size_t size, void (*action)(int));
