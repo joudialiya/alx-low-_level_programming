@@ -18,9 +18,6 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i = 0;
 
-	if (s == NULL)
-		return (NULL);
-
 	while (ops[i].op != NULL && ops[i].f != NULL)
 	{
 		if (strcmp(ops[i].op, s) == 0)
