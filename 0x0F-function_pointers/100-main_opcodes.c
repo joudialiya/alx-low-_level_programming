@@ -2,7 +2,6 @@
 #include <stdio.h>
 
 void _op(void (*f)(int, char *[]), int);
-int _size(void (*f)(int, char *[]));
 /**
  * main -print op code starting from the main function
  * @argc: args count
