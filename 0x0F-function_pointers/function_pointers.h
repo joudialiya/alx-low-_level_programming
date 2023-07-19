@@ -1,7 +1,7 @@
 #ifndef FUN_H
 #define FUN_H
 
-#include <strlib.h>
+#include <stdlib.h>
 
 int _putchar(int);
 void print_name(char *name, void (*f)(char *));
