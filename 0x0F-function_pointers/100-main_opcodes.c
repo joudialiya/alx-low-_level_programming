@@ -1,13 +1,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void _op(void (*f)(int, char *[]), int);
+void _op(int (*f)(int, char *[]), int);
 /**
  * main -print op code starting from the main function
  * @argc: args count
  * @argv: args vector
+ *
+ * Return: 0
  */
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
@@ -20,13 +22,14 @@ void main(int argc, char *argv[])
 		exit(2);
 	}
 	_op(main, atoi(argv[1]));
+	return (0);
 }
 /**
  * _op - where the magic happened
  * @f: a function
  * @size: numb of op codes u wanna print
  */
-void _op(void (*f)(int, char *[]), int size)
+void _op(int (*f)(int, char *[]), int size)
 {
 	int i = 0;
 
