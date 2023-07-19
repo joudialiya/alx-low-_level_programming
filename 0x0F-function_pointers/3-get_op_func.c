@@ -1,16 +1,6 @@
 #include "3-calc.h"
 
 /**
- * error - print error and exit()
- * @code: exit code
- */
-void error(int code)
-{
-	printf("Error\n");
-	exit(code);
-}
-
-/**
  * get_op_func - select the op callback function
  * @s: str contain the op as a string
  *
