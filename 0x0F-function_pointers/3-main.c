@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	if (callback == NULL)
 		error(99);
 
-	if ((callback == op_div || callback == op_mod) && atoi(argv[3]) == 0)
+	if ((strcmp(argv[2], "%") == 0 || strcmp(argv[2], "/") == 0) && atoi(argv[3]) == 0)
 		error(100);
 
 	printf("%d\n", (*callback)(atoi(argv[1]), atoi(argv[3])));
