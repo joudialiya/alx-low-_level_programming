@@ -17,7 +17,7 @@ void print_all(const char * const format, ...)
 	{
 		switch (format[i])
 		{
-			case ('c'):			
+			case ('c'):
 				valid = 1;
 				printf("%c", va_arg(args, int));
 			break;
@@ -45,7 +45,6 @@ void print_all(const char * const format, ...)
 		valid = 0;
 		++i;
 	}
-
 	printf("\n");
 	va_end(args);
 }
