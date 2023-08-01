@@ -16,10 +16,12 @@ size_t free_listint_safe(listint_t **h)
 	if (h == NULL)
 		return (0);
 
-	while (*h && !_contain(lookup, ilookup, (void *)(*h)))
+	lookup[0] = NULL;
+	while (*h && !_contain(lookup, (void *)(*h)))
 	{
 		lookup[ilookup] = (void *)(*h);
 		++ilookup;
+		lookup[ilookup] = NULL;
 		tmp = *h;
 		*h = (*h)->next;
 		free(tmp);
