@@ -12,7 +12,7 @@ listint_t *find_listint_loop(listint_t *h)
 	listint_t *fast = NULL;
 
 	if (h == NULL)
-		return (0);
+		return (NULL);
 	slow = h;
 	fast = h;
 	while (fast && slow && fast->next)
@@ -22,13 +22,12 @@ listint_t *find_listint_loop(listint_t *h)
 		if (slow == fast)
 		{
 			fast = h;
-			while (1)
+			while (slow != fast)
 			{
 				slow = slow->next;
 				fast = fast->next;
-				if (slow == fast)
-					return (slow);
 			}
+			return (slow);
 		}
 	}
 	return (NULL);
