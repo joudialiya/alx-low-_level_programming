@@ -3,7 +3,7 @@
 /**
  * create_file - print a fect file
  * @filename: filename
- * @text_content
+ * @text_content: text content
  *
  * Return: 1 or -1
  */
