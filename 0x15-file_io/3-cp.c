@@ -28,25 +28,28 @@ int main(int argc, char *argv[])
 		return (98);
 	}
 	fd[1] = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, MODE);
-	if (fd[1] < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		return (99);
-	}
 	while ((r = read(fd[0], buf, 1024)) > 0)
 	{
 		w = write(fd[1], buf, (size_t)r);
-		if (w < 0)
+		if (fd[1] < 0 || w < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			return (99);
 		}
 	}
+	if (r < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		return (98);
+	}
 	while (i < 2)
+	{
 		if (close(fd[i]) < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd[i]);
-			return (100);	
+			return (100);
 		}
+		++i;
+	}
 	return (0);
 }
