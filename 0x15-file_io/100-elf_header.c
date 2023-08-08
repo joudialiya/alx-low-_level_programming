@@ -99,7 +99,7 @@ void _os_abi(unsigned char *ident)
 			printf("UNIX - FreeBSD\n");
 			break;
 		default:
-			printf("<unkown: %02x>\n", ident[7]);
+			printf("<unknown: %x>\n", ident[7]);
 			break;
 	}
 }
@@ -129,7 +129,7 @@ void _type(unsigned short int type, unsigned char *ident)
 			printf("Core (Core file)\n");
 			break;
 		default:
-			printf("<unkown: %02hx>\n", type);
+			printf("<unknown: %hx>\n", type);
 			break;
 	}
 }
