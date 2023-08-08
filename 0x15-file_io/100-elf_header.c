@@ -141,10 +141,10 @@ void _entry(unsigned long int addr, unsigned char *ident)
 
 		p0 = (addr & 0x00000000000000ff) << 56; 
 		p1 = (addr & 0x000000000000ff00) << 40; 
-		p2 = (addr & 0x0000000000ff0000) << 18; 
+		p2 = (addr & 0x0000000000ff0000) << 24; 
 		p3 = (addr & 0x00000000ff000000) << 8;
 		p4 = (addr & 0x000000ff00000000) >> 8;
-		p5 = (addr & 0x0000ff0000000000) >> 18;
+		p5 = (addr & 0x0000ff0000000000) >> 24;
 		p6 = (addr & 0x00ff000000000000) >> 40;
 		p7 = (addr & 0xff00000000000000) >> 56;
 		
