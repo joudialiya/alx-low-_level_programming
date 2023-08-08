@@ -6,6 +6,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <elf.h>
 
 typedef struct elf64
 {
