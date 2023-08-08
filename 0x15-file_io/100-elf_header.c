@@ -1,6 +1,12 @@
 #include "main.h"
 #define N_IDENT 16
 
+/**
+ * check_fmt - check if te file is valid elf file
+ * @fd: file descriptor
+ *
+ * Return: 0
+ */
 int check_fmt(int fd)
 {
 	const unsigned char magic[] = {0x7F, 0x45, 0x4c, 0x46};
@@ -24,12 +30,17 @@ int check_fmt(int fd)
 	lseek(fd, 0, SEEK_SET);
 	return (0);
 }
+
+/**
+ * _magic - print magic number
+ * @ident: e_ident
+ */
 void _magic(unsigned char *ident)
 {
 	int i = 0;
 
 	printf("  Magic:   ");
-	while(i < N_IDENT)
+	while (i < N_IDENT)
 	{
 		printf("%02x", ident[i]);
 		++i;
@@ -38,6 +49,10 @@ void _magic(unsigned char *ident)
 	}
 	printf("\n");
 }
+/**
+ * _data - print magic number
+ * @ident: e_ident
+ */
 void _data(unsigned char *ident)
 {
 	printf("  Data:                              ");
@@ -51,6 +66,10 @@ void _data(unsigned char *ident)
 			break;
 	}
 }
+/**
+ * _class - print magic number
+ * @ident: e_ident
+ */
 void _class(unsigned char *ident)
 {
 	printf("  Class:                             ");
@@ -64,6 +83,10 @@ void _class(unsigned char *ident)
 			break;
 	}
 }
+/**
+ * _version - print magic number
+ * @ident: e_ident
+ */
 void _version(unsigned char *ident)
 {
 	printf("  Version:                           %d", ident[6]);
@@ -78,8 +101,12 @@ void _version(unsigned char *ident)
 			break;
 	}
 }
+/**
+ * _os_abi - print magic number
+ * @ident: e_ident
+ */
 void _os_abi(unsigned char *ident)
-{	
+{
 	printf("  OS/ABI:                            ");
 	switch (ident[7])
 	{
@@ -103,10 +130,19 @@ void _os_abi(unsigned char *ident)
 			break;
 	}
 }
+/**
+ * _os_ver - print magic number
+ * @ident: e_ident
+ */
 void _os_ver(unsigned char *ident)
 {
 	printf("  ABI Version:                       %d\n", ident[8]);
 }
+/**
+ * _type - print magic number
+ * @type: type value
+ * @ident: e_ident
+ */
 void _type(unsigned short int type, unsigned char *ident)
 {
 	if (ident[5] == 2)
@@ -133,6 +169,11 @@ void _type(unsigned short int type, unsigned char *ident)
 			break;
 	}
 }
+/**
+ * _entry - print magic number
+ * @addr: addr value
+ * @ident: e_ident
+ */
 void _entry(unsigned long int addr, unsigned char *ident)
 {
 	if (addr == 0)
@@ -146,16 +187,16 @@ void _entry(unsigned long int addr, unsigned char *ident)
 
 		if (ident[4] == 1)
 			addr <<= 32;
-		p0 = (addr & 0x00000000000000ff) << 56; 
-		p1 = (addr & 0x000000000000ff00) << 40; 
-		p2 = (addr & 0x0000000000ff0000) << 24; 
+		p0 = (addr & 0x00000000000000ff) << 56;
+		p1 = (addr & 0x000000000000ff00) << 40;
+		p2 = (addr & 0x0000000000ff0000) << 24;
 		p3 = (addr & 0x00000000ff000000) << 8;
 
 		p4 = (addr & 0x000000ff00000000) >> 8;
 		p5 = (addr & 0x0000ff0000000000) >> 24;
 		p6 = (addr & 0x00ff000000000000) >> 40;
 		p7 = (addr & 0xff00000000000000) >> 56;
-		
+
 		addr = p0 | p1 | p2 | p3 | p4 | p5 | p6 | p7;
 	}
 	if (ident[4] == 1)
@@ -163,6 +204,13 @@ void _entry(unsigned long int addr, unsigned char *ident)
 	printf("  Entry point address:               %#lx\n", addr);
 }
 
+/**
+ * main - main program a readelf -h cpy
+ * @argc: count
+ * @argv: vector
+ *
+ * Return: 0
+ */
 int main(int argc, char *argv[])
 {
 	int fd = 0;
@@ -185,7 +233,7 @@ int main(int argc, char *argv[])
 	if (r < 0)
 	{
 		dprintf(STDERR_FILENO, "Can't read from the file\n");
-		exit(98);	
+		exit(98);
 	}
 	close(fd);
 	printf("ELF Header:\n");
@@ -197,6 +245,5 @@ int main(int argc, char *argv[])
 	_os_ver(elf64.e_ident);
 	_type(*((unsigned short int *)elf64.e_type), elf64.e_ident);
 	_entry(*((unsigned long int *)elf64.e_entry), elf64.e_ident);
-	
 	return (0);
 }
