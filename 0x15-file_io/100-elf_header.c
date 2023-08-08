@@ -151,10 +151,13 @@ void _entry(unsigned long int addr, unsigned char *ident)
 		
 		addr = p0 | p1 | p2 | p3 | p4 | p5 | p6 | p7;
 	}
-	if (ident[4] == 1)
-		addr &= 0xffffffff;
 	if (addr == 0)
+	{
 		printf("  Entry point address:               0x0\n");
+		return;
+	}
+	if (ident[4] == 1)
+		printf("  Entry point address:               %#x\n", (unsigned int)addr);
 	else
 		printf("  Entry point address:               %#lx\n", addr);
 }
