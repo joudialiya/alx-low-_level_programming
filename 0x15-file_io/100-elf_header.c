@@ -140,12 +140,12 @@ void _entry(unsigned long int addr, unsigned char *ident)
 		printf("  Entry point address:               0x0\n");
 		return;
 	}
-	if (ident[4] == 1)
-		addr <<= 32;
 	if (ident[5] == 2)
 	{
 		unsigned long int p0, p1, p2, p3, p4, p5, p6, p7;
 
+		if (ident[4] == 1)
+			addr <<= 32;
 		p0 = (addr & 0x00000000000000ff) << 56; 
 		p1 = (addr & 0x000000000000ff00) << 40; 
 		p2 = (addr & 0x0000000000ff0000) << 24; 
@@ -158,6 +158,8 @@ void _entry(unsigned long int addr, unsigned char *ident)
 		
 		addr = p0 | p1 | p2 | p3 | p4 | p5 | p6 | p7;
 	}
+	if (ident[4] == 1)
+		addr &= 0xffffffff;
 	printf("  Entry point address:               %#lx\n", addr);
 }
 
