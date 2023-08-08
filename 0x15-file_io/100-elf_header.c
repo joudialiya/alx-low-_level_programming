@@ -109,7 +109,7 @@ void _os_ver(unsigned char *ident)
 }
 void _type(unsigned short int type, unsigned char *ident)
 {
-	if (ident[4] == 2)
+	if (ident[5] == 2)
 		type = ((type & 0x00ff) << 8) | ((type & 0xff00) >> 8);
 
 	printf("  Type:                              ");
@@ -135,7 +135,7 @@ void _type(unsigned short int type, unsigned char *ident)
 }
 void _entry(unsigned long int addr, unsigned char *ident)
 {
-	if (ident[4] == 2)
+	if (ident[5] == 2)
 	{
 		unsigned long int p0, p1, p2, p3, p4, p5, p6, p7;
 
@@ -150,7 +150,7 @@ void _entry(unsigned long int addr, unsigned char *ident)
 		
 		addr = p0 | p1 | p2 | p3 | p4 | p5 | p6 | p7;
 	}
-	if (ident[5] == 1)
+	if (ident[4] == 1)
 		addr &= 0x00000000ffffffff;
 	printf("  Entry point address:               %#lx\n", addr);
 }
