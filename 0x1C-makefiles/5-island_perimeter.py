@@ -27,5 +27,5 @@ def island_perimeter(grid):
                     cpy[y][x] = 'x'
                     count += 1
 #    for row in cpy:
-#        print(" ".join(map(str, row)))
-    return count
+#       print(" ".join(map(str, row)))
+    return count + 1
