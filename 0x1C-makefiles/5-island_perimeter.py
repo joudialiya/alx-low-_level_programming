@@ -12,20 +12,14 @@ def island_perimeter(grid):
     for y in range(0, lengthY):
         for x in range(0, lengthX):
 
-            if grid[y][x] == 0:
+            if grid[y][x] == 1:
 
-                if x > 1 and grid[y][x - 1] == 1 and cpy[y][x] != 'x':
-                    cpy[y][x] = 'x'
+                if x == 0 or grid[y][x - 1] != 1:
                     count += 1
-                if x < lengthX - 1 and grid[y][x + 1] == 1 and cpy[y][x] != 'x':
-                    cpy[y][x] = 'x'
+                if x == lengthX - 1 or grid[y][x + 1] != 1:
                     count += 1
-                if y > 1 and grid[y - 1][x] == 1 and cpy[y][x] != 'x':
-                    cpy[y][x] = 'x'
+                if y == 0 or grid[y - 1][x] != 1:
                     count += 1
-                if y < lengthY - 1 and grid[y + 1][x] == 1 and cpy[y][x] != 'x':
-                    cpy[y][x] = 'x'
+                if y == lengthY - 1 or grid[y + 1][x] != 1:
                     count += 1
-#    for row in cpy:
-#       print(" ".join(map(str, row)))
-    return count + 1
+    return count
